@@ -8,6 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="BREVE">
 <meta name="theme-color" content="#2e2e2e">
+<link rel="manifest" href="manifest.json">
 <title>BR.EV.E.</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -2367,6 +2368,11 @@ function hlT(t,q){
 load();
 
 showHome();
+
+// registra il service worker per PWA installabile
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+}
 </script>
 
 </body>
